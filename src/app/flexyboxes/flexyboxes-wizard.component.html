@@ -1,0 +1,84 @@
+<button class="btn btn-sm btn-link" (click)="opened = true">+ Add item</button>
+<clr-wizard #wizard [(clrWizardOpen)]="opened" clrWizardSize="lg" (clrWizardOnCancel)="doReset()" (clrWizardOnFinish)="doFinish()">
+    <clr-wizard-title>Add item for card {{ id }}</clr-wizard-title>
+
+    <clr-wizard-button [type]="'cancel'">Cancel</clr-wizard-button>
+    <clr-wizard-button [type]="'previous'">Back</clr-wizard-button>
+    <clr-wizard-button [type]="'next'">Next</clr-wizard-button>
+    <clr-wizard-button [type]="'finish'">Finish</clr-wizard-button>
+
+    <clr-wizard-page [clrWizardPageNextDisabled]="text.pristine || !formPageOne.valid">
+        <ng-template clrPageTitle>Select input properties</ng-template>
+        <form #formPageOne="ngForm">
+            <section class="form-block">
+                <div class="form-group">
+                    <label>Text</label>
+                    <label for="text" aria-haspopup="true" role="tooltip"
+                        [class.invalid]="text.touched && !text.valid"
+                        class="tooltip tooltip-validation tooltip-md tooltip-bottom-right">
+                        <input type="text" id="text" required [(ngModel)]="item.text" name="text" #text="ngModel">
+                        <span class="tooltip-content">This field cannot be empty!</span>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="input-type">Input type</label>
+                    <div class="select">
+                        <select id="input-type" name="input-type" [(ngModel)]="item.type">
+                            <option value="label">label</option>
+                            <option value="text">text</option>
+                            <option value="number">number</option>
+                            <option value="button">button</option>
+                            <option value="checkbox">checkbox</option>
+                            <option value="radio">radio</option>
+                            <option value="select">select</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="size">Size</label>
+                    <div class="select">
+                        <select id="size" name="size" [(ngModel)]="item.size">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                    </select>
+                    </div>
+                </div>
+            </section>
+        </form>
+    </clr-wizard-page>
+
+    <clr-wizard-page>
+        <ng-template clrPageTitle>Flexbox properties</ng-template>
+        <form>
+            <section class="form-block">
+                <section class="form-group">
+                    <label for="order">order</label>
+                    <input type="number" id="order" name="order" [(ngModel)]="item.order" />
+                </section>
+                <section class="form-group">
+                    <label for="flex-grow">flex-grow</label>
+                    <input type="number" id="flex-grow" name="flex-grow" [(ngModel)]="item.flexGrow" />
+                </section>
+                <section class="form-group">
+                    <label for="flex-shrink">flex-shrink</label>
+                    <input type="number" id="flex-shrink" name="flex-shrink" [(ngModel)]="item.flexShrink" />
+                </section>
+                <section class="form-group">
+                    <label for="flex-basis">flex-basis</label>
+                    <input type="number" id="flex-basis" name="flex-basis" [(ngModel)]="item.flexBasis" />
+                </section>
+            </section>
+        </form>
+    </clr-wizard-page>
+
+</clr-wizard>
