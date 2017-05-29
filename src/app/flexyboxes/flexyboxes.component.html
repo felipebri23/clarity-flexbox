@@ -33,34 +33,28 @@
       </div>
     </div>
   </div>
-  <div class="col-lg-6 col-md-8 col-sm-6 col-xs-12">
+  <div class="col-lg-9 col-md-8 col-sm-6 col-xs-12">
     <form>
       <section class="form-block">
-        <div *ngFor="let group of groups" class="group form-group row" 
-          [style.flex-direction]="group.flexDirection" 
-          [style.flex-wrap]="group.flexWrap"
-          [style.justify-content]="group.justifyContent" 
-          [style.align-items]="group.alignItems">
-          <div *ngFor="let item of group.items" class="col-xs-{{ item.size }}" 
-            [ngSwitch]="item.type" 
-            [style.order]="item.order"
-            [style.flex-grow]="item.flexGrow"
-            [style.flex-shrink]="item.flexShrink"
-            [style.flex-basis]="item.flexBasis">
+        <div *ngFor="let group of groups" class="form-group row" [style.flex-direction]="group.flexDirection" [style.flex-wrap]="group.flexWrap"
+          [style.justify-content]="group.justifyContent" [style.align-items]="group.alignItems">
+
+          <div *ngFor="let item of group.items" class="col-lg-{{ item.size }} col-md-{{ item.size }} col-sm-{{ item.size }} col-xs-{{ item.size }}" [ngSwitch]="item.type" [style.order]="item.order" [style.flex-grow]="item.flexGrow"
+            [style.flex-shrink]="item.flexShrink" [style.flex-basis]="item.flexBasis">
             <label *ngSwitchCase="'label'">{{ item.text }}</label>
             <input *ngSwitchCase="'text'" class="form-control" type="text" placeholder="{{ item.text }}">
             <input *ngSwitchCase="'number'" class="form-control" type="number" placeholder="{{ item.text }}">
             <button *ngSwitchCase="'button'" type="submit" class="btn btn-primary">{{ item.text }}</button>
             <div *ngSwitchCase="'checkbox'" class="checkbox">
-                <input type="checkbox" id="checkrads_1">
-                <label for="checkrads_1">{{ item.text }}</label>
+              <input type="checkbox" id="checkrads_1">
+              <label for="checkrads_1">{{ item.text }}</label>
             </div>
             <div *ngSwitchCase="'radio'" class="radio">
-                <input type="radio" name="gridRadios" id="checkrads_9">
-                <label for="checkrads_9">{{ item.text }}</label>
+              <input type="radio" name="gridRadios" id="checkrads_9">
+              <label for="checkrads_9">{{ item.text }}</label>
             </div>
             <div *ngSwitchCase="'select'" class="select">
-                <select id="selects_1">
+              <select id="selects_1">
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
@@ -68,7 +62,7 @@
                     <option>50000000</option>
                 </select>
             </div>
-          </div>         
+          </div>
         </div>
       </section>
     </form>

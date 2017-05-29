@@ -26,7 +26,7 @@ export class FlexyboxesComponent {
   }
 
   public addItem(group: Group, item: Item): void {
-    group.items.push(new Item(item.text, item.type, item.size, item.order, item.flexGrow, item.flexShrink, item.flexBasis));
+    group.items.push(new Item(item.text, item.type, item.size, item.order, item.flexGrow, item.flexShrink));
   }
 
   public clear(): void {
