@@ -27,7 +27,7 @@
           </div>
         </div>
         <div class="card-footer">
-          <button class="btn btn-sm btn-link" (click)="removeCard(group.id)"><clr-icon shape="info-circle"></clr-icon> Remove</button>
+          <button class="btn btn-sm btn-link" (click)="removeCard(group.id)"><clr-icon shape="remove"></clr-icon> Remove</button>
           <app-flexyboxes-wizard [id]="group.id" (finish)="addItem(group, $event)"></app-flexyboxes-wizard>
         </div>
       </div>

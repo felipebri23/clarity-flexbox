@@ -1,4 +1,4 @@
-<button class="btn btn-sm btn-link" (click)="opened = true">+ Add item</button>
+<button class="btn btn-sm btn-link" (click)="opened = true"><clr-icon shape="add"></clr-icon> Add item</button>
 <clr-wizard #wizard [(clrWizardOpen)]="opened" clrWizardSize="lg" (clrWizardOnCancel)="doReset()" (clrWizardOnFinish)="doFinish()">
     <clr-wizard-title>Add item for card {{ id }}</clr-wizard-title>
 
