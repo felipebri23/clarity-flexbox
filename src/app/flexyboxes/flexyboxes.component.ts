@@ -10,6 +10,8 @@ import { Item } from '../models/item.model';
 export class FlexyboxesComponent {
 
   public groups: Group[] = [];
+  public itemToEdit: Item;
+  public opened: Boolean = false;
 
   constructor() {
   }
@@ -31,6 +33,11 @@ export class FlexyboxesComponent {
 
   public clear(): void {
     this.groups = [];
+  }
+
+  public editItem(item: Item): void {
+    this.opened = true;
+    this.itemToEdit = item;
   }
 
   private reorder(): void {
