@@ -99,4 +99,12 @@ function tests() {
     expect(de.length).toBe(1, 'no match modals length');
   });
 
+  it('can export form', () => {
+    comp.export();
+    fixture.detectChanges();
+    de = fixture.debugElement.queryAll(By.css('.modal'));
+    expect(comp.openedForm).toBeTruthy('no opened form');
+    expect(de.length).toBe(1, 'no match modals length');
+  });
+
 }
